@@ -1,7 +1,9 @@
 module.exports = {
   "extends": "@ridi",
   "rules": {
-    "import/extensions": [0, 'always', {}]
+    "global-require": 0,
+    "import/extensions": [0, 'always', {}],
+    "import/no-extraneous-dependencies": 0,
   },
   "env": {
     "browser": true,
