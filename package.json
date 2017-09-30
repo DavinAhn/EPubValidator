@@ -1,0 +1,19 @@
+{
+  "name": "EPubValidator",
+  "version": "0.1.0",
+  "description": "ePub Validator on Electron based.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/DaVinAhn/EPubValidator",
+  "keywords": [
+    "Electron",
+    "epub"
+  ],
+  "author": "davin.ahn <m.davinahn@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~1.7.8"
+  }
+}
