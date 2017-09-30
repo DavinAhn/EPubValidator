@@ -3,6 +3,8 @@ const settings = require('electron-settings')
 const path = require('path');
 const url = require('url');
 
+require('electron-reload')(__dirname);
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -10,6 +12,7 @@ let win;
 function createWindow() {
   let windowConfig = {}
 
+settings.set('windowState', null);
   if (settings.has('windowState')) {
     windowConfig = Object.assign({}, windowConfig, settings.get('windowState'));
   } else {
@@ -21,7 +24,6 @@ function createWindow() {
       height: 800,
       minHeight: 800,
       fullscreenable: false,
-      frame: false
     });
   }
 
@@ -36,7 +38,7 @@ function createWindow() {
   }));
 
   // Open the DevTools.
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   // Emitted when the window is closed.
   win.on('closed', () => {
