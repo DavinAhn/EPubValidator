@@ -11,6 +11,8 @@ app.on('ready', () => {
   const template = menu.create();
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
+  // load contents of all active BrowserWindows within electron
+  // when the source files are changed.
   const autoReload = require('electron-reload');
   autoReload(__dirname);
 });
@@ -27,7 +29,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (win === null) {
+  if (win.getMain() === null) {
     win.loadMain();
   }
 });
