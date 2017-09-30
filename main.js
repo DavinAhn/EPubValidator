@@ -1,57 +1,19 @@
-const { app, BrowserWindow } = require('electron');
-const settings = require('electron-settings');
-const path = require('path');
-const url = require('url');
-
-require('electron-reload')(__dirname);
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win;
-
-function createWindow() {
-  let windowConfig = {};
-
-  if (settings.has('windowState')) {
-    windowConfig = Object.assign({}, windowConfig, settings.get('windowState'));
-  } else {
-    settings.set('windowState', {
-      x: undefined,
-      y: undefined,
-      width: 600,
-      minWidth: 600,
-      height: 800,
-      minHeight: 800,
-      fullscreenable: false,
-    });
-  }
-
-  // Create the browser window.
-  win = new BrowserWindow(windowConfig);
-
-  // and load the index.html of the app.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true,
-  }));
-
-  // Open the DevTools.
-  win.webContents.openDevTools();
-
-  // Emitted when the window is closed.
-  win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    win = null;
-  });
-}
+const { app, Menu } = require('electron');
+const win = require('./src/electron/window');
+const menu = require('./src/electron/menu');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', () => {
+  win.loadMain().webContents.openDevTools();
+
+  const template = menu.create();
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+
+  const autoReload = require('electron-reload');
+  autoReload(__dirname);
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -66,7 +28,7 @@ app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {
-    createWindow();
+    win.loadMain();
   }
 });
 
