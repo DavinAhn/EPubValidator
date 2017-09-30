@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const settings = require('electron-settings')
 const path = require('path');
 const url = require('url');
 
@@ -7,8 +8,25 @@ const url = require('url');
 let win;
 
 function createWindow() {
+  let windowConfig = {}
+
+  if (settings.has('windowState')) {
+    windowConfig = Object.assign({}, windowConfig, settings.get('windowState'));
+  } else {
+    settings.set('windowState', {
+      x: undefined,
+      y: undefined,
+      width: 600,
+      minWidth: 600,
+      height: 800,
+      minHeight: 800,
+      fullscreenable: false,
+      frame: false
+    });
+  }
+
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 });
+  win = new BrowserWindow(windowConfig);
 
   // and load the index.html of the app.
   win.loadURL(url.format({
