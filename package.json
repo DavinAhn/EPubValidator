@@ -2,9 +2,10 @@
   "name": "EPubValidator",
   "version": "0.1.0",
   "description": "ePub Validator on Electron based.",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "lint": "eslint --fix --ext .js src"
   },
   "repository": "https://github.com/DaVinAhn/EPubValidator",
   "keywords": [
@@ -13,7 +14,12 @@
   ],
   "author": "davin.ahn <m.davinahn@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "electron": "^1.7.8"
+  },
   "devDependencies": {
-    "electron": "~1.7.8"
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0"
   }
 }
