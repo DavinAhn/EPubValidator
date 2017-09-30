@@ -1,6 +1,5 @@
 const { app, Menu } = require('electron');
 const win = require('./src/electron/window');
-const menu = require('./src/electron/menu');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -8,8 +7,7 @@ const menu = require('./src/electron/menu');
 app.on('ready', () => {
   win.loadMain().webContents.openDevTools();
 
-  const template = menu.create();
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  Menu.setApplicationMenu(null);
 
   // load contents of all active BrowserWindows within electron
   // when the source files are changed.
