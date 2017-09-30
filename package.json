@@ -5,6 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
+    "build": "npm run lint && npm run start",
     "lint": "eslint --fix --ext .js src"
   },
   "repository": "https://github.com/DaVinAhn/EPubValidator",
