@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require('electron');
-const settings = require('electron-settings')
+const settings = require('electron-settings');
 const path = require('path');
 const url = require('url');
 
@@ -10,9 +10,8 @@ require('electron-reload')(__dirname);
 let win;
 
 function createWindow() {
-  let windowConfig = {}
+  let windowConfig = {};
 
-settings.set('windowState', null);
   if (settings.has('windowState')) {
     windowConfig = Object.assign({}, windowConfig, settings.get('windowState'));
   } else {

@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "watch": "watchify src/app.js -t babelify -o resources/js/bundle.js --debug --verbose",
+    "watch": "watchify src/app/app.jsx -t babelify -o resources/js/bundle.js --debug --verbose",
     "build": "npm run lint",
     "lint": "eslint --fix --ext .js src"
   },
@@ -31,6 +31,7 @@
     "eslint": "^4.7.2",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-react": "^7.3.0",
     "@ridi/eslint-config": "^3.0.0"
   }
 }
