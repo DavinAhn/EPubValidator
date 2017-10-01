@@ -28,6 +28,8 @@ module.exports = {
       minWidth: 600,
       height: 800,
       minHeight: 800,
+      minimizable: true,
+      maximizable: false,
       fullscreenable: false,
       show: false,
       frame: false,

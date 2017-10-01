@@ -2,3 +2,33 @@
 body {
   background-color: #1e2028;
 }
+
+/* Title Nav Bar */
+
+.title_nav_bar_right_buttons {
+  float: right;
+  line-height: 0;
+}
+
+.title_nav_bar_right_buttons > .title_nav_bar_button {
+  margin-left: 0.55rem;
+}
+
+.title_nav_bar_button {
+  line-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  opacity: .5;
+}
+
+.title_nav_bar_button:focus, .title_nav_bar_button:hover {
+  opacity: .75;
+}
+
+.title_nav_bar_button > svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #ffffff;
+}
