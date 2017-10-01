@@ -7,10 +7,10 @@ const url = require('url');
 let main;
 
 module.exports = {
-  create(pathname, config) {
+  create(filePath, config) {
     const win = new BrowserWindow(config);
     win.loadURL(url.format({
-      pathname,
+      filePath,
       protocol: 'file:',
       slashes: true,
     }));
@@ -20,8 +20,8 @@ module.exports = {
   getMain: () => main,
 
   loadMain() {
-    const pathname = path.join(__dirname, '../../index.html');
-    const win = this.create(pathname, {
+    const filePath = path.join(__dirname, '../../index.html');
+    const win = this.create(filePath, {
       x: undefined,
       y: undefined,
       width: 600,

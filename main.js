@@ -7,9 +7,10 @@ const win = require('./src/electron/window');
 app.on('ready', () => {
   win.loadMain().webContents.openDevTools();
 
+  // Remove all default menu.
   Menu.setApplicationMenu(null);
 
-  // load contents of all active BrowserWindows within electron
+  // Load contents of all active BrowserWindows within electron
   // when the source files are changed.
   const autoReload = require('electron-reload');
   autoReload(__dirname);
