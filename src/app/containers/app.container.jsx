@@ -9,6 +9,10 @@ class AppContainer extends React.Component {
     this.state = {};
   }
 
+  handleReceivedFile(files) {
+    console.log('Received file: ', files.path)
+  }
+
   render() {
     return (
       <div>
@@ -21,7 +25,11 @@ class AppContainer extends React.Component {
             this.props.window.close();
           }}
         />
-        <BodyContainer />
+        <BodyContainer
+          handleReceivedFile={(file) => {
+            this.handleReceivedFile(file);
+          }}
+        />
       </div>
     );
   }
