@@ -47,7 +47,6 @@ body {
   font-family: UbuntuLight;
   background-color: #1e2028;
   user-select: none;
-  -webkit-app-region: drag
 }
 
 .error_color {
@@ -69,6 +68,7 @@ body {
 
 #title_navbar {
   height: 2rem;
+  -webkit-app-region: drag;
 }
 
 #title_navbar > span {
