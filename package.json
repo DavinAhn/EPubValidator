@@ -4,7 +4,7 @@
   "description": "ePub Validator on Electron based.",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js",
+    "start": "electron --inspect=5858 main.js",
     "watch": "watchify src/app/app.jsx -t babelify -o resources/js/bundle.js --debug --verbose",
     "build": "npm run lint",
     "lint": "eslint --fix --ext .js src"
