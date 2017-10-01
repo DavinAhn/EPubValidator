@@ -5,6 +5,14 @@ body {
 
 /* Title Nav Bar */
 
+#title_navbar {
+  height: 2rem;
+}
+
+#title_navbar > span {
+  font-size: 0.9rem;
+}
+
 .title_nav_bar_right_buttons {
   float: right;
   line-height: 0;
@@ -28,7 +36,7 @@ body {
 }
 
 .title_nav_bar_button > svg {
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   fill: #ffffff;
 }
