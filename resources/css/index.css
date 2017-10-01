@@ -1,5 +1,46 @@
 
+@font-face {
+  font-family: 'SourceBold';
+  src: url('../fonts/SourceCodePro-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'SourceLight';
+  src: url('../fonts/SourceCodePro-Light.ttf');
+}
+
+@font-face {
+  font-family: 'SourceMedium';
+  src: url('../fonts/SourceCodePro-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Source';
+  src: url('../fonts/SourceCodePro-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'UbuntuBold';
+  src: url('../fonts/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'UbuntuLight';
+  src: url('../fonts/Ubuntu-Light.ttf');
+}
+
+@font-face {
+  font-family: 'UbuntuMedium';
+  src: url('../fonts/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/Ubuntu-Regular.ttf');
+}
+
 body {
+  font-family: UbuntuLight;
   background-color: #1e2028;
 }
 
