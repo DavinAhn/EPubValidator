@@ -10,7 +10,7 @@ module.exports = {
   create(filePath, config) {
     const win = new BrowserWindow(config);
     win.loadURL(url.format({
-      filePath,
+      pathname: filePath,
       protocol: 'file:',
       slashes: true,
     }));
