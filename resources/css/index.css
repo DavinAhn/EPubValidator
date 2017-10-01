@@ -39,9 +39,14 @@
   src: url('../fonts/Ubuntu-Regular.ttf');
 }
 
+::selection {
+  background: #d95c5c;
+}
+
 body {
   font-family: UbuntuLight;
   background-color: #1e2028;
+  user-select: none;
 }
 
 .error_color {
@@ -56,6 +61,7 @@ body {
   background: transparent;
   border: 0;
   -webkit-appearance: none;
+  outline: none !important;
 }
 
 /* Title Nav Bar */
