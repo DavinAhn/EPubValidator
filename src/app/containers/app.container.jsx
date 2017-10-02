@@ -12,9 +12,12 @@ class AppContainer extends React.Component {
   }
 
   handleReceivedFile(file) {
-    ipcRenderer.send("verfiy", { file });
+    ipcRenderer.send("verfiy", {
+      path: file.path,
+      mimeType: file.type,
+    });
     ipcRenderer.on('verified', (event, args) => {
-      console.log(`verified ${event}, ${args}`);
+      console.log(`verified`);
     });
   }
 

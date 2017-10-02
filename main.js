@@ -1,5 +1,6 @@
 const { app, Menu, ipcMain } = require('electron');
 const win = require('./src/electron/window');
+const verfiy = require('./src/electron/verfiy');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -37,5 +38,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 
 ipcMain.on('verfiy', (event, args) => {
-  event.sender.send('verified', { 'success': true });
+  verfiy.run(args.path, args.mimeType, (result) => {
+    event.sender.send('verified', result);
+  });
 });

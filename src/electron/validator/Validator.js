@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = class Validator {
-  get name() { return this._name; }
+class Validator {
+  get name() { return 'default'; }
   get fileName() { return path.basename(this.filePath); }
   get filePath() { return this._filePath; }
   get dirPath() { return path.dirname(this.filePath); }
@@ -10,11 +10,12 @@ module.exports = class Validator {
   get size() { return fs.statSync(this.filePath)['size']; }
 
   constructor(filePath) {
-    this._name = 'Default';
     this._filePath = filePath;
   }
 
-  run() {
-
+  run(callback) {
+    callback({}, null);
   }
-};
+}
+
+exports.Validator = Validator;
