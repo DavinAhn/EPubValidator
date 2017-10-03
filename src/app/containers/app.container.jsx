@@ -10,6 +10,7 @@ class AppContainer extends React.Component {
     super(props);
     this.state = {
       isProcessing: false,
+      result: null,
     };
   }
 
@@ -20,8 +21,10 @@ class AppContainer extends React.Component {
       mimeType: file.type,
     });
     ipcRenderer.on('verified', (event, args) => {
-      this.setState({ isProcessing: false });
-      console.log(`verified`);
+      this.setState({
+        isProcessing: false,
+        result: args,
+      });
     });
   }
 
@@ -38,10 +41,11 @@ class AppContainer extends React.Component {
           }}
         />
         <BodyContainer
-          isProcessing={this.state.isProcessing}
           handleReceivedFile={(file) => {
             this.handleReceivedFile(file);
           }}
+          isProcessing={this.state.isProcessing}
+          result={this.state.result}
         />
       </div>
     );

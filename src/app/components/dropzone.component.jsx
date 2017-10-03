@@ -111,8 +111,8 @@ class DropZone extends React.Component {
 }
 
 DropZone.propTypes = {
-  isProcessing: PropTypes.bool.isRequired,
   handleReceivedFile: PropTypes.func.isRequired,
+  isProcessing: PropTypes.bool.isRequired,
 };
 
 export default DropZone;
