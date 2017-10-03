@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import DropZone from '../components/dropzone.component.jsx';
 
 class BodyContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     return (
-      <div>
+      <div id="body">
         <DropZone
+          isProcessing={this.props.isProcessing}
           handleReceivedFile={(file) => {
             this.props.handleReceivedFile(file);
           }}
@@ -22,6 +18,7 @@ class BodyContainer extends React.Component {
 }
 
 BodyContainer.propTypes = {
+  isProcessing: PropTypes.bool.isRequired,
   handleReceivedFile: PropTypes.func.isRequired,
 };
 

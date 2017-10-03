@@ -1,4 +1,6 @@
 
+/* Fonts */
+
 @font-face {
   font-family: 'SourceBold';
   src: url('../fonts/SourceCodePro-Bold.ttf');
@@ -39,29 +41,35 @@
   src: url('../fonts/Ubuntu-Regular.ttf');
 }
 
+/* Selection */
+
 ::selection {
   background: #d95c5c;
 }
 
-body {
-  font-family: UbuntuLight;
-  background-color: #1e2028;
-  user-select: none;
-}
+/* Color */
 
 .error_color {
   color: #d95c5c;
 }
 
+/* Util */
+
+.hidden {
+  display: none;
+}
+
 /* Button */
 
 .button {
+  color: #e6e8eb;
   line-height: 0;
   padding: 0;
   background: transparent;
   border: 0;
   -webkit-appearance: none;
   outline: none !important;
+  transition: opacity .15s ease, background-color .15s ease, color .15s ease, border .15s ease;
 }
 
 /* Title Nav Bar */
@@ -78,6 +86,7 @@ body {
 .title_nav_bar_right_buttons {
   float: right;
   line-height: 0;
+  -webkit-app-region: no-drag;
 }
 
 .title_nav_bar_right_buttons > .title_nav_bar_button {
@@ -85,17 +94,31 @@ body {
 }
 
 .title_nav_bar_button {
-  opacity: .5;
+  opacity: .7;
 }
 
 .title_nav_bar_button:focus, .title_nav_bar_button:hover {
-  opacity: .75;
+  opacity: .95;
 }
 
 .title_nav_bar_button > svg {
   width: 1rem;
   height: 1rem;
-  fill: #ffffff;
+  fill: #e6e8eb;
+}
+
+/* Body */
+
+body {
+  font-family: UbuntuLight;
+  background-color: #1e2028;
+  user-select: none;
+}
+
+#body {
+  margin-top: 2rem;
+  display: inline-block;
+  width: 100%;
 }
 
 /* Drop Zone */
@@ -103,7 +126,8 @@ body {
 .dropzone_background {
   margin: 80px 5rem;
   height: 160px;
-  border: 2px dashed #66757f;
+  background: rgba(48,53,56,0.3);
+  border: 2px dashed #808991;
   border-radius: 10px;
 }
 
@@ -111,18 +135,41 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: rgba(20,24,28,.2);
-  box-shadow: inset 0 0 0 1px rgba(20,24,28,.1);
+  box-shadow: inset 0 0 0 1px rgba(64,71,77,0.3);
   box-sizing: border-box;
   border-radius: 5px;
-  color: #ffffff;
+  color: #e6e8eb;
   font-size: 1.1em;
   text-align: center;
   text-shadow: 0 1px 1px #000;
 }
 
-.dropzone:first-child {
+@keyframes processing {
+  50% {
+    background: rgba(0,98,179,0.5);
+    border: 2px dashed #0062b3;
+  }
+  100% {
+    background: rgba(48,53,56,0.3);
+    border: 2px dashed #808991;
+  }
+}
+
+.dropzone_processing {
+  animation: processing 2s ease-in-out infinite;
+}
+
+.dropzone_active {
+  box-shadow: inset 0 0 20px 10px rgb(0,98,179);
+  border: 2px dashed #0062b3;
+}
+
+.dropzone_waiting_label {
   padding-top: 30px;
+}
+
+.dropzone_processing_label {
+  padding-top: 62px;
 }
 
 #dropzone_import {
@@ -135,8 +182,11 @@ body {
   padding: .3rem .6rem;
   border-radius: 5px;
   text-align: center;
-  background: #e1e5e8;
-  transition: opacity .15s ease, background-color .15s ease, color .15s ease, border .15s ease;
+  background: #005499;
+}
+
+.dropzone_import_button:focus, .dropzone_import_button:hover {
+  background: #0062b3;
 }
 
 .dropzone_import_button > svg, span {
@@ -147,10 +197,11 @@ body {
 .dropzone_import_button > svg {
   width: 1.3rem;
   height: 1.3rem;
-  fill: #000000;
+  fill: #e6e8eb;
 }
 
 .dropzone_import_button > span {
-  margin-top: 10px;
+  margin-top: 11px;
   margin-left: 5px;
+  padding-right: 2px;
 }

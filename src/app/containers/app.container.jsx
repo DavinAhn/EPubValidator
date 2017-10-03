@@ -8,15 +8,19 @@ const ipcRenderer = window.require('electron').ipcRenderer;
 class AppContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isProcessing: false,
+    };
   }
 
   handleReceivedFile(file) {
+    this.setState({ isProcessing: true });
     ipcRenderer.send("verfiy", {
       path: file.path,
       mimeType: file.type,
     });
     ipcRenderer.on('verified', (event, args) => {
+      this.setState({ isProcessing: false });
       console.log(`verified`);
     });
   }
@@ -34,6 +38,7 @@ class AppContainer extends React.Component {
           }}
         />
         <BodyContainer
+          isProcessing={this.state.isProcessing}
           handleReceivedFile={(file) => {
             this.handleReceivedFile(file);
           }}

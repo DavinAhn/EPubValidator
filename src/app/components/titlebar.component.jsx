@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class TitleBar extends React.Component {
   render() {
     return (
-      <nav id="title_navbar" className="navbar navbar-dark bg-dark">
+      <nav id="title_navbar" className="fixed-top navbar navbar-dark bg-dark">
         <span className="navbar-brand mb-0">{this.props.title}</span>
         <span className="title_nav_bar_right_buttons">
           <button type="button" className="button title_nav_bar_button" aria-label="Minimize Window" onClick={this.props.handleMinimize}>
