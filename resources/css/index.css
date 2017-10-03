@@ -74,34 +74,34 @@
 
 /* Title Nav Bar */
 
-#title_navbar {
+#title_bar {
   height: 2rem;
   -webkit-app-region: drag;
 }
 
-#title_navbar > span {
+#title_bar > span {
   font-size: 0.9rem;
 }
 
-.title_nav_bar_right_buttons {
+.title_bar_right_buttons {
   float: right;
   line-height: 0;
   -webkit-app-region: no-drag;
 }
 
-.title_nav_bar_right_buttons > .title_nav_bar_button {
+.title_bar_right_buttons > .title_bar_button {
   margin-left: 0.55rem;
 }
 
-.title_nav_bar_button {
+.title_bar_button {
   opacity: .7;
 }
 
-.title_nav_bar_button:focus, .title_nav_bar_button:hover {
+.title_bar_button:focus, .title_bar_button:hover {
   opacity: .95;
 }
 
-.title_nav_bar_button > svg {
+.title_bar_button > svg {
   width: 1rem;
   height: 1rem;
   fill: #e6e8eb;
@@ -204,4 +204,43 @@ body {
   margin-top: 11px;
   margin-left: 5px;
   padding-right: 2px;
+}
+
+/* Control Bar */
+
+#control_bar {
+  height: 2rem;
+}
+
+.control_bar_summary {
+  display: inline-block;
+}
+
+.control_bar_right_buttons {
+  float: right;
+  line-height: 0;
+}
+
+.control_bar_right_buttons > .control_bar_button {
+  margin-left: 0.55rem;
+}
+
+.control_bar_button {
+  opacity: .7;
+}
+
+#control_bar_retry:focus, #control_bar_retry:hover {
+  fill: #ff884d;
+  opacity: .95;
+}
+
+#control_bar_done:focus, #control_bar_done:hover {
+  fill: #7bcf3b;
+  opacity: .95;
+}
+
+.control_bar_button > svg {
+  width: 1rem;
+  height: 1rem;
+  fill: #e6e8eb;
 }

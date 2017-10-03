@@ -44,7 +44,6 @@ module.exports = {
     win.once('ready-to-show', () => {
       win.show();
     });
-    win.setContentProtection(true);
 
     main = win;
     return win;
