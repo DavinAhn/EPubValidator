@@ -1,4 +1,4 @@
 .idea
 node_modules
-resources/js/bundle.*
+public
 *.log

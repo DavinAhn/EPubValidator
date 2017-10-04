@@ -9,8 +9,8 @@ class TitleBar extends React.Component {
 
   render() {
     return (
-      <nav id="title_bar" className="fixed-top navbar navbar-dark bg-dark">
-        <span className="navbar-brand mb-0">{this.props.title}</span>
+      <nav id="title_bar" className="fixed_top navbar">
+        <span className="navbar_brand mb-0">{this.props.title}</span>
         <span className="title_bar_right_buttons">
           <button type="button" className="button title_bar_button" aria-label="Minimize Window" onClick={this.props.handleMinimize}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

@@ -1,0 +1,320 @@
+/* Fonts */
+
+@import 'font';
+
+@include font('SourceBold', 'SourceCodePro-Bold');
+@include font('SourceLight', 'SourceCodePro-Light');
+@include font('SourceMedium', 'SourceCodePro-Medium');
+@include font('Source', 'SourceCodePro-Regular');
+@include font('UbuntuBold', 'Ubuntu-Bold');
+@include font('UbuntuLight', 'Ubuntu-Light');
+@include font('UbuntuMedium', 'Ubuntu-Medium');
+@include font('Ubuntu', 'Ubuntu-Regular');
+
+/* Color Variables */
+
+$color_black: #000000;
+
+$color_white: #ffffff;
+
+$color_slate_gray_5: #f2f4f5;
+$color_slate_gray_10: #e6e8eb;
+$color_slate_gray_20: #d1d5d9;
+$color_slate_gray_30: #b8bfc4;
+$color_slate_gray_40: #9ea7ad;
+$color_slate_gray_50: #808991;
+$color_slate_gray_60: #636c73;
+$color_slate_gray_70: #525a61;
+$color_slate_gray_80: #40474d;
+$color_slate_gray_90: #303538;
+$color_slate_gray_100: #212529;
+
+$color_dodger_blue_5: #ebf6ff;
+$color_dodger_blue_10: #cce8ff;
+$color_dodger_blue_20: #99d1ff;
+$color_dodger_blue_30: #66baff;
+$color_dodger_blue_40: #339cf2;
+$color_dodger_blue_50: #1f8ce6;
+$color_dodger_blue_60: #0077d9;
+$color_dodger_blue_70: #0062b3;
+$color_dodger_blue_80: #005499;
+$color_dodger_blue_90: #004680;
+$color_dodger_blue_100: #003866;
+
+$color_error: #d95c5c;
+
+$color_icon: $color_slate_gray_10;
+
+$color_body_background: #1e2028;
+
+$color_nav_background: #343a40;
+
+/* Sizes Variables */
+
+$size_bar_right_button_margin_left: 0.7rem;
+$size_bar_height: 2rem;
+$size_bar_icon_size: 1rem;
+
+@mixin barIconSize() {
+  width: $size_bar_icon_size;
+  height: $size_bar_icon_size;
+}
+
+/* Utils */
+
+.hidden {
+  display: none !important;
+}
+
+.fixed_top {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.fixed_bottom {
+  position: fixed !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+/* Selection */
+
+::selection {
+  background: $color_error;
+}
+
+/* UI */
+
+@import 'tag';
+
+.button {
+  color: $color_slate_gray_10;
+  line-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  outline: none;
+  transition: opacity .15s ease, background-color .15s ease, color .15s ease, border .15s ease;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: $color_nav_background;
+}
+
+.navbar_brand {
+  color: $color_white;
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  &:focus, &:hover {
+    text-decoration: none;
+  }
+}
+
+.badge {
+  border: 1px solid $color_black;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: $color_white;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  &:empty {
+    display: none;
+  }
+}
+
+.badge-success {
+  color: $color_white;
+  background-color: #28a745;
+  [href]:focus, [href]:hover {
+    color: $color_white;
+    text-decoration: none;
+    background-color: #1e7e34;
+  }
+}
+
+/* Title Nav Bar */
+
+#title_bar {
+  height: $size_bar_height;
+  -webkit-app-region: drag;
+  span {
+    font-size: 0.9rem;
+  }
+}
+
+.title_bar_right_buttons {
+  float: right;
+  line-height: 0;
+  -webkit-app-region: no-drag;
+  .title_bar_button {
+    margin-left: $size_bar_right_button_margin_left;
+  }
+}
+
+.title_bar_button {
+  opacity: .7;
+  &:focus, &:hover {
+    opacity: .95;
+  }
+  svg {
+    @include barIconSize();
+    fill: $color_icon;
+  }
+}
+
+/* Body */
+
+body {
+  font-family: UbuntuLight;
+  background-color: $color_body_background;
+  user-select: none;
+}
+
+#app_body {
+  margin-top: $size_bar_height;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Drop Zone */
+
+.dropzone_background {
+  margin: 80px 5rem;
+  height: 160px;
+  background: rgba(48,53,56,0.3);
+  border: 2px dashed $color_slate_gray_50;
+  border-radius: 10px;
+}
+
+.dropzone {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-shadow: inset 0 0 0 1px rgba(64,71,77,0.3);
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: $color_slate_gray_10;
+  font-size: 1.1em;
+  text-align: center;
+  text-shadow: 0 1px 1px $color_black;
+}
+
+@keyframes processing {
+  50% {
+    background: rgba(0,98,179,0.5);
+    border: 2px dashed $color_dodger_blue_70;
+  }
+  100% {
+    background: rgba(48,53,56,0.3);
+    border: 2px dashed $color_slate_gray_50;
+  }
+}
+
+.dropzone_processing {
+  animation: processing 2s ease-in-out infinite;
+}
+
+.dropzone_active {
+  box-shadow: inset 0 0 20px 10px $color_dodger_blue_70;
+  border: 2px dashed $color_dodger_blue_70;
+}
+
+.dropzone_waiting_label {
+  padding-top: 30px;
+}
+
+.dropzone_processing_label {
+  padding-top: 62px;
+}
+
+#dropzone_import {
+  display: none;
+}
+
+.dropzone_import_button {
+  display: inline-block;
+  margin-top: 0.55rem;
+  padding: .3rem .6rem;
+  border-radius: 5px;
+  text-align: center;
+  background: $color_dodger_blue_80;
+  &:focus, &:hover {
+    background: $color_dodger_blue_70;
+  }
+  svg, span {
+    display: inline-block;
+    vertical-align: top;
+  }
+  svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: $color_icon;
+  }
+  span {
+    margin-top: 11px;
+    margin-left: 5px;
+    padding-right: 2px;
+  }
+}
+
+/* Control Bar */
+
+#control_bar {
+  height: $size_bar_height;
+}
+
+.control_bar_summary {
+  display: inline-block;
+}
+
+.control_bar_right_buttons {
+  float: right;
+  line-height: 0;
+  .control_bar_button {
+    margin-left: $size_bar_right_button_margin_left;
+  }
+}
+
+.control_bar_button {
+  opacity: .7;
+  svg {
+    @include barIconSize();
+    fill: $color_icon;
+  }
+}
+
+#control_bar_retry {
+  &:focus, &:hover {
+    fill: #ff884d;
+    opacity: .95;
+  }
+}
+
+#control_bar_done {
+  &:focus, &:hover {
+    fill: #7bcf3b;
+    opacity: .95;
+  }
+}

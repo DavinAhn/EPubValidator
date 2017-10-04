@@ -16,7 +16,11 @@ class ReportContainer extends React.Component {
 }
 
 ReportContainer.propTypes = {
-  results: PropTypes.oneOfType([Results, null]).isRequired,
+  results: PropTypes.instanceOf(Results),
+};
+
+ReportContainer.defaultProps = {
+  results: null,
 };
 
 export default ReportContainer;

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppContainer from './containers/app.container.jsx';
 
+require('../sass/index.scss');
+
 // https://github.com/electron/electron/issues/7300
 const remote = window.require('electron').remote;
 

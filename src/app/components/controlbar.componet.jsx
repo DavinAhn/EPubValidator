@@ -16,11 +16,11 @@ class ControlBar extends React.Component {
       const badgeType = ['danger', 'danger', 'warning', 'info'];
       const names = ['Fatal', 'Error', 'Warning', 'Usage'];
       ['nFatal', 'nError', 'nWarning', 'nUsage'].forEach((key, idx) => {
-        summary.push((<span className={`badge badge-${badgeType[idx]}`}>{names[idx]} {checker[key]}</span>));
+        summary.push((<span className={`badge badge_${badgeType[idx]}`}>{names[idx]} {checker[key]}</span>));
       });
     }
     return (
-      <nav id="control_bar" className={`fixed-bottom navbar navbar-dark bg-dark ${this.props.results !== null ? '' : 'hidden'}`}>
+      <nav id="control_bar" className={`fixed_bottom navbar ${this.props.results !== null ? '' : 'hidden'}`}>
         <span className="control_bar_summary">
           {summary}
         </span>
@@ -46,7 +46,11 @@ class ControlBar extends React.Component {
 ControlBar.propTypes = {
   handleRetry: PropTypes.func.isRequired,
   handleDone: PropTypes.func.isRequired,
-  results: PropTypes.oneOfType([Results, null]).isRequired,
+  results: PropTypes.instanceOf(Results),
+};
+
+ControlBar.defaultProps = {
+  results: null,
 };
 
 export default ControlBar;

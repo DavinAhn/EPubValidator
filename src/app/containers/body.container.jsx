@@ -12,7 +12,7 @@ class BodyContainer extends React.Component {
 
   render() {
     return (
-      <div id="body">
+      <div id="app_body">
         <div className={this.props.results !== null ? 'hidden' : ''}>
           <DropZone
             handleReceivedFile={(file) => {
@@ -34,7 +34,11 @@ class BodyContainer extends React.Component {
 BodyContainer.propTypes = {
   handleReceivedFile: PropTypes.func.isRequired,
   isProcessing: PropTypes.bool.isRequired,
-  results: PropTypes.oneOfType([Results, null]).isRequired,
+  results: PropTypes.instanceOf(Results),
+};
+
+BodyContainer.defaultProps = {
+  results: null,
 };
 
 export default BodyContainer;
