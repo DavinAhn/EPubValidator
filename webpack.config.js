@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -82,11 +81,6 @@ module.exports = {
     }),
     new ExtractTextPlugin({
       filename: '../css/style.css',
-    }),
-    new CleanWebpackPlugin(['public'], {
-      root: `${__dirname}`,
-      verbose: true,
-      dry: false,
     }),
   ],
 };
