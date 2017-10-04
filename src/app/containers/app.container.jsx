@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TitleBar from '../components/titlebar.component.jsx';
 import BodyContainer from './body.container.jsx';
 import ControlBar from '../components/controlbar.componet.jsx';
+import Results from '../modeles/Results';
 
 const ipcRenderer = window.require('electron').ipcRenderer;
 
@@ -12,7 +13,7 @@ class AppContainer extends React.Component {
     this.state = {
       latestFile: null,
       isProcessing: false,
-      result: null,
+      results: null,
     };
   }
 
@@ -20,16 +21,16 @@ class AppContainer extends React.Component {
     this.setState({
       latestFile: file,
       isProcessing: true,
-      result: null,
+      results: null,
     });
-    ipcRenderer.send("verfiy", {
+    ipcRenderer.send('verfiy', {
       path: file.path,
       mimeType: file.type,
     });
     ipcRenderer.on('verified', (event, args) => {
       this.setState({
         isProcessing: false,
-        result: args,
+        results: new Results(args),
       });
     });
   }
@@ -51,7 +52,7 @@ class AppContainer extends React.Component {
             this.handleReceivedFile(file);
           }}
           isProcessing={this.state.isProcessing}
-          result={this.state.result}
+          results={this.state.results}
         />
         <ControlBar
           handleRetry={() => {
@@ -60,10 +61,10 @@ class AppContainer extends React.Component {
           handleDone={() => {
             this.setState({
               latestFile: null,
-              result: null,
+              results: null,
             });
           }}
-          result={this.state.result}
+          results={this.state.results}
         />
       </div>
     );

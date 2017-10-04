@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Results from '../modeles/Results';
 
 class ReportContainer extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ReportContainer extends React.Component {
 }
 
 ReportContainer.propTypes = {
-  result: PropTypes.object,
+  results: PropTypes.instanceOf(Results),
 };
 
 export default ReportContainer;

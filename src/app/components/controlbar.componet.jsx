@@ -1,11 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Results from '../modeles/Results';
 
 class ControlBar extends React.Component {
   render() {
+    const results = this.props.results;
+    const summary = [];
+    if (results) {
+      const checker = results.epub.checker;
+      const badgeType = ['danger', 'danger', 'warning', 'info'];
+      const names = ['Fatal', 'Error', 'Warning', 'Usage'];
+      ['nFatal', 'nError', 'nWarning', 'nUsage'].forEach((key, idx) => {
+        summary.push((<span className={`badge badge-${badgeType[idx]}`}>{names[idx]} {checker[key]}</span>));
+      });
+    }
     return (
-      <nav id="control_bar" className={`fixed-bottom navbar navbar-dark bg-dark ${this.props.result !== null ? '' : 'hidden'}`}>
+      <nav id="control_bar" className={`fixed-bottom navbar navbar-dark bg-dark ${this.props.results !== null ? '' : 'hidden'}`}>
         <span className="control_bar_summary">
+          {summary}
         </span>
         <span className="control_bar_right_buttons">
           <button type="button" className="button control_bar_button" aria-label="Retry" onClick={this.props.handleRetry}>
@@ -29,7 +41,7 @@ class ControlBar extends React.Component {
 ControlBar.propTypes = {
   handleRetry: PropTypes.func.isRequired,
   handleDone: PropTypes.func.isRequired,
-  result: PropTypes.object,
+  results: PropTypes.instanceOf(Results),
 };
 
 export default ControlBar;

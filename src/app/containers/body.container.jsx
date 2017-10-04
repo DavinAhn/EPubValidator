@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DropZone from '../components/dropzone.component.jsx';
 import ReportContainer from './report.container.jsx';
+import Results from '../modeles/Results';
 
 class BodyContainer extends React.Component {
   render() {
     return (
       <div id="body">
-        <div className={this.props.result !== null ? "hidden" : ""}>
+        <div className={this.props.results !== null ? "hidden" : ""}>
           <DropZone
             handleReceivedFile={(file) => {
               this.props.handleReceivedFile(file);
@@ -15,9 +16,9 @@ class BodyContainer extends React.Component {
             isProcessing={this.props.isProcessing}
           />
         </div>
-        <div className={this.props.result !== null ? "" : "hidden"}>
+        <div className={this.props.results !== null ? "" : "hidden"}>
           <ReportContainer
-            result={this.props.result}
+            results={this.props.results}
           />
         </div>
       </div>
@@ -28,7 +29,7 @@ class BodyContainer extends React.Component {
 BodyContainer.propTypes = {
   handleReceivedFile: PropTypes.func.isRequired,
   isProcessing: PropTypes.bool.isRequired,
-  result: PropTypes.object,
+  results: PropTypes.instanceOf(Results),
 };
 
 export default BodyContainer;
