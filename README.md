@@ -4,8 +4,8 @@
 
 ## Prerequisite
 
-- [Node](https://nodejs.org/): 6.11.3 or higher
-- [NodeJS Inspector](https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj?utm_source=chrome-app-launcher-info-dialog): It is necessary when debugging the [electron code](https://github.com/DaVinAhn/EPubValidator/tree/develop/src/electron).
+- [Node](https://nodejs.org/): 6.11.3 or higher.
+- [NodeJS Inspector](https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj?utm_source=chrome-app-launcher-info-dialog): It is necessary when debugging the [electron-code](https://github.com/DaVinAhn/EPubValidator/tree/develop/src/electron).
 
 ## Installation
 
@@ -21,7 +21,7 @@ $ npm install
 Following command for development:
 ```
 $ npm run watch
-$ npm run debug // Access 5858 port after installing 'NodeJS Inspector'
+$ npm run debug // Access 5858 port after installing 'NodeJS Inspector'.
 ```
 
 Following command for test:
