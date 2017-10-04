@@ -4,11 +4,12 @@
 
 ## Prerequisite
 
-- [Node](https://nodejs.org/): 6.11.3+
-- [NodeJS Inspector](https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj?utm_source=chrome-app-launcher-info-dialog): For debug.
+- [Node](https://nodejs.org/): 6.11.3 or higher
+- [NodeJS Inspector](https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj?utm_source=chrome-app-launcher-info-dialog): It is necessary when debugging the [electron code](https://github.com/DaVinAhn/EPubValidator/tree/develop/src/electron).
 
 ## Installation
 
+You can install it with the following command:
 ```
 $ git clone https://github.com/DaVinAhn/EPubValidator.git [target directory]
 $ cd [taget directory]
@@ -17,15 +18,13 @@ $ npm install
 
 ## Run
 
-### For development:
-
+Following command for development:
 ```
 $ npm run watch
 $ npm run debug
 ```
 
-### For test:
-
+Following command for test:
 ```
 $ npm run build
 $ npm run start
