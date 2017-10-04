@@ -21,7 +21,7 @@ $ npm install
 Following command for development:
 ```
 $ npm run watch
-$ npm run debug
+$ npm run debug // Access 5858 port after installing 'NodeJS Inspector'
 ```
 
 Following command for test:
