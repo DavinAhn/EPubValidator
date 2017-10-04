@@ -10,14 +10,13 @@ class ReportContainer extends React.Component {
 
   render() {
     return (
-      <div>
-      </div>
+      <div className={this.props.results !== null ? 'hidden' : ''} />
     );
   }
 }
 
 ReportContainer.propTypes = {
-  results: PropTypes.instanceOf(Results),
+  results: PropTypes.oneOfType([Results, null]).isRequired,
 };
 
 export default ReportContainer;

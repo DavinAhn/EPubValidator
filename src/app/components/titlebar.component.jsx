@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class TitleBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <nav id="title_bar" className="fixed-top navbar navbar-dark bg-dark">
@@ -9,8 +14,8 @@ class TitleBar extends React.Component {
         <span className="title_bar_right_buttons">
           <button type="button" className="button title_bar_button" aria-label="Minimize Window" onClick={this.props.handleMinimize}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M19 13H5v-2h14v2z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M19 13H5v-2h14v2z" />
+              <path d="M0 0h24v24H0z" fill="none" />
             </svg>
           </button>
           <button type="button" className="button title_bar_button" aria-label="Close" onClick={this.props.handleClose}>

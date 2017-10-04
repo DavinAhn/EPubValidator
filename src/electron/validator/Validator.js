@@ -7,7 +7,7 @@ class Validator {
   get filePath() { return this._filePath; }
   get dirPath() { return path.dirname(this.filePath); }
   get type() { return path.extname(this.filePath); }
-  get size() { return fs.statSync(this.filePath)['size']; }
+  get size() { return fs.statSync(this.filePath).size; }
 
   constructor(filePath) {
     this._filePath = filePath;

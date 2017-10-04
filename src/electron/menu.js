@@ -1,3 +1,1 @@
-module.exports.create = () => {
-  return [];
-};
+module.exports.create = () => [];
