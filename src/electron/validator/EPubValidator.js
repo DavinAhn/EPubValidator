@@ -9,7 +9,7 @@ class EPubValidator extends Validator {
   run(callback) {
     const jarPath = path.join(process.cwd(), 'libs/epubcheck/epubcheck.jar');
     const targetPath = this.filePath;
-    const outputPath = 'epubcheck_result.json';
+    const outputPath = '.epubcheck_result.json';
     const child = spawn(`java`, [
       '-Duser.country=KO',
       '-Duser.language=kr',

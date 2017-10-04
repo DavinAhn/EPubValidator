@@ -1,6 +1,14 @@
 const { app, Menu, ipcMain } = require('electron');
+const path = require('path');
 const win = require('./src/electron/window');
 const verfiy = require('./src/electron/verfiy');
+
+// Load contents of all active BrowserWindows within electron
+// when the source files are changed.
+require('electron-reload')(__dirname, {
+  electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
+  hardResetMethod: 'exit',
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -10,11 +18,6 @@ app.on('ready', () => {
 
   // Remove all default menu.
   Menu.setApplicationMenu(null);
-
-  // Load contents of all active BrowserWindows within electron
-  // when the source files are changed.
-  const autoReload = require('electron-reload');
-  autoReload(__dirname);
 });
 
 // Quit when all windows are closed.
