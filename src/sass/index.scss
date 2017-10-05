@@ -132,6 +132,8 @@ $color_icon: $color_slate_gray_10;
 $color_nav_background: #343a40;
 $color_body_background: #1e2028;
 
+$color_default_color: $color_slate_gray_10;
+
 /* Sizes Variables */
 
 $size_bar_right_button_margin_left: 0.7rem;
@@ -176,7 +178,7 @@ $size_bar_icon_size: 1rem;
 @import 'tag';
 
 .button {
-  color: $color_slate_gray_10;
+  color: $color_default_color;
   line-height: 0;
   padding: 0;
   background: transparent;
@@ -244,6 +246,7 @@ $size_bar_icon_size: 1rem;
 
 body {
   font-family: UbuntuLight;
+  color: $color_default_color;
   background-color: $color_body_background;
   user-select: none;
 }
@@ -271,7 +274,7 @@ body {
   box-shadow: inset 0 0 0 1px rgba(64,71,77,0.3);
   box-sizing: border-box;
   border-radius: 5px;
-  color: $color_slate_gray_10;
+  color: $color_default_color;
   font-size: 1.1em;
   text-align: center;
   text-shadow: 0 1px 1px $color_black;
@@ -335,6 +338,40 @@ body {
   }
 }
 
+/* Report */
+
+ol {
+  counter-reset: item;
+  list-style-type: none;
+  padding: 0 0;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  &:first-child {
+    margin-top: 1rem;
+  }
+}
+
+.report_item {
+  border: 1px;
+}
+
+.item_fatal {
+
+}
+
+.item_error {
+
+}
+
+.item_warning {
+
+}
+
+.item_usage {
+
+}
+
 /* Control Bar */
 
 #control_bar {
@@ -346,7 +383,7 @@ body {
   padding-bottom: 0.2rem;
 }
 
-.result {
+.control_bar_result_summary, .time_ago {
   display: inline-block;
   font-family: UbuntuLight;
   color: $color_slate_gray_50;

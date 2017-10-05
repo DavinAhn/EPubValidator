@@ -16,12 +16,13 @@ class ControlBar extends React.Component {
       const names = ['fatal', 'error', 'warning', 'usage'];
       ['nFatal', 'nError', 'nWarning', 'nUsage'].forEach((key, idx, list) => {
         summary.push(
-          (<div className="result">
-            <span className={`result_${names[idx]}`}>
-              {names[idx].charAt(0).toUpperCase() + names[idx].slice(1)} {results[key]}
-            </span>
-            {idx < list.length - 1 ? ',' : ''}&nbsp;
-          </div>
+          (
+            <div className="control_bar_result_summary">
+              <span className={`result_${names[idx]}`}>
+                {names[idx].charAt(0).toUpperCase() + names[idx].slice(1)} {results[key]}
+              </span>
+              {idx < list.length - 1 ? ',' : ''}&nbsp;
+            </div>
           ));
       });
     }
@@ -29,7 +30,7 @@ class ControlBar extends React.Component {
       <nav id="control_bar" className={`fixed_bottom navbar ${this.props.results !== null ? '' : 'hidden'}`}>
         <div className="control_bar_summary">
           {summary}
-          <div className="result">
+          <div className="time_ago">
             (<TimeAgo date={Date()} />)
           </div>
         </div>
