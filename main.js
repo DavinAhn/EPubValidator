@@ -42,6 +42,7 @@ app.on('activate', () => {
 
 ipcMain.on('verfiy', (event, args) => {
   verfiy.run(args.path, args.mimeType, (results) => {
+    win.updateSize({ height: 800 }, win.getMain());
     event.sender.send('verified', results);
   });
 });
