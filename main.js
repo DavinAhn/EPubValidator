@@ -46,3 +46,7 @@ ipcMain.on('verfiy', (event, args) => {
     event.sender.send('verified', results);
   });
 });
+
+ipcMain.on('updateSize', (event, args) => {
+  win.updateSize(args.size, win.getMain());
+});

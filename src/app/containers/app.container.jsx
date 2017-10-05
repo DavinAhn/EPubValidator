@@ -35,6 +35,12 @@ class AppContainer extends React.Component {
     });
   }
 
+  requestWindowSizeUpdate(size = { height: -1 }) {
+    ipcRenderer.send('updateSize', {
+      size,
+    });
+  }
+
   render() {
     return (
       <div>
@@ -56,9 +62,11 @@ class AppContainer extends React.Component {
         />
         <ControlBar
           handleRetry={() => {
+            this.requestWindowSizeUpdate();
             this.handleReceivedFile(this.state.latestFile);
           }}
           handleDone={() => {
+            this.requestWindowSizeUpdate();
             this.setState({
               latestFile: null,
               results: null,
