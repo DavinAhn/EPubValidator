@@ -29,6 +29,30 @@ $color_slate_gray_80: #40474d;
 $color_slate_gray_90: #303538;
 $color_slate_gray_100: #212529;
 
+$color_blue_gray_5: #f2f6fc;
+$color_blue_gray_10: #d6deeb;
+$color_blue_gray_20: #94a2b8;
+$color_blue_gray_30: #738096;
+$color_blue_gray_40: #59667a;
+$color_blue_gray_50: #475161;
+$color_blue_gray_60: #384252;
+$color_blue_gray_70: #2e3847;
+$color_blue_gray_80: #212b3b;
+$color_blue_gray_90: #17202e;
+$color_blue_gray_100: #0f1724;
+
+$color_light_steel_blue_5: #f7fafc;
+$color_light_steel_blue_10: #f0f5fa;
+$color_light_steel_blue_20: #e3edf7;
+$color_light_steel_blue_30: #d6e3f0;
+$color_light_steel_blue_40: #ccd9e6;
+$color_light_steel_blue_50: #c4d1de;
+$color_light_steel_blue_60: #b3c2d1;
+$color_light_steel_blue_70: #9eafbf;
+$color_light_steel_blue_80: #8c9dad;
+$color_light_steel_blue_90: #7d8e9e;
+$color_light_steel_blue_100: #70808f;
+
 $color_dodger_blue_5: #ebf6ff;
 $color_dodger_blue_10: #cce8ff;
 $color_dodger_blue_20: #99d1ff;
@@ -41,13 +65,72 @@ $color_dodger_blue_80: #005499;
 $color_dodger_blue_90: #004680;
 $color_dodger_blue_100: #003866;
 
-$color_error: #d95c5c;
+$color_red_5: #fce8e6;
+$color_red_10: #fabab3;
+$color_red_20: #f5948a;
+$color_red_30: #ed6d5e;
+$color_red_40: #eb5847;
+$color_red_50: #e64937;
+$color_red_60: #d93826;
+$color_red_70: #c93221;
+$color_red_80: #ba2c1c;
+$color_red_90: #ab2617;
+$color_red_100: #942114;
+
+$color_orange_5: #ffeee6;
+$color_orange_10: #ffccb3;
+$color_orange_20: #ffaa80;
+$color_orange_30: #ff884d;
+$color_orange_40: #fa722e;
+$color_orange_50: #fa5300;
+$color_orange_60: #e64d00;
+$color_orange_70: #cc4400;
+$color_orange_80: #b33b00;
+$color_orange_90: #993300;
+$color_orange_100: #802b00;
+
+$color_green_5: #f1faeb;
+$color_green_10: #ddf2cc;
+$color_green_20: #b2e08f;
+$color_green_30: #7bcf3b;
+$color_green_40: #5abf0d;
+$color_green_50: #4fb303;
+$color_green_60: #469e03;
+$color_green_70: #409103;
+$color_green_80: #398003;
+$color_green_90: #2c6600;
+$color_green_100: #214d00;
+
+$color_brown_5: #fff9f0;
+$color_brown_10: #f5e8d4;
+$color_brown_20: #e6cfad;
+$color_brown_30: #d1aa70;
+$color_brown_40: #c29757;
+$color_brown_50: #b0874a;
+$color_brown_60: #a37a3d;
+$color_brown_70: #8f6930;
+$color_brown_80: #805b24;
+$color_brown_90: #6b4a1a;
+$color_brown_100: #5c3f14;
+
+$color_yellow_5: #fffffa;
+$color_yellow_10: #ffffe1;
+$color_yellow_20: #ffffc8;
+$color_yellow_30: #ffffaf;
+$color_yellow_40: #ffff96;
+$color_yellow_50: #ffff7d;
+$color_yellow_60: #ffff64;
+$color_yellow_70: #ffff48;
+$color_yellow_80: #ffff32;
+$color_yellow_90: #ffff19;
+$color_yellow_100: #ffff00;
+
+$color_error: $color_red_20;
 
 $color_icon: $color_slate_gray_10;
 
-$color_body_background: #1e2028;
-
 $color_nav_background: #343a40;
+$color_body_background: #1e2028;
 
 /* Sizes Variables */
 
@@ -124,33 +207,6 @@ $size_bar_icon_size: 1rem;
   white-space: nowrap;
   &:focus, &:hover {
     text-decoration: none;
-  }
-}
-
-.badge {
-  border: 1px solid $color_black;
-  display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: bold;
-  line-height: 1;
-  color: $color_white;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.25rem;
-  &:empty {
-    display: none;
-  }
-}
-
-.badge-success {
-  color: $color_white;
-  background-color: #28a745;
-  [href]:focus, [href]:hover {
-    color: $color_white;
-    text-decoration: none;
-    background-color: #1e7e34;
   }
 }
 
@@ -287,6 +343,38 @@ body {
 
 .control_bar_summary {
   display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+.result {
+  display: inline-block;
+  font-family: UbuntuLight;
+  color: $color_slate_gray_50;
+  font-size: 0.8rem;
+}
+
+.result_fatal {
+  &:focus, &:hover {
+    color: $color_red_70;
+  }
+}
+
+.result_error {
+  &:focus, &:hover {
+    color: $color_red_40;
+  }
+}
+
+.result_warning {
+  &:focus, &:hover {
+    color: $color_yellow_50;
+  }
+}
+
+.result_usage {
+  &:focus, &:hover {
+    color: $color_dodger_blue_60;
+  }
 }
 
 .control_bar_right_buttons {

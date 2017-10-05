@@ -1,6 +1,10 @@
 import EPubResult from './EPubResult';
 
 class Results {
+  get nFatal() { return this.epub.checker.nFatal; }
+  get nError() { return this.epub.checker.nError; }
+  get nWarning() { return this.epub.checker.nWarning; }
+  get nUsage() { return this.epub.checker.nUsage; }
   get epub() { return this._epub; }
 
   constructor(json) {

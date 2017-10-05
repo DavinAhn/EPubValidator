@@ -11,7 +11,7 @@ class TitleBar extends React.Component {
     return (
       <nav id="title_bar" className="fixed_top navbar">
         <span className="navbar_brand mb-0">{this.props.title}</span>
-        <span className="title_bar_right_buttons">
+        <div className="title_bar_right_buttons">
           <button type="button" className="button title_bar_button" aria-label="Minimize Window" onClick={this.props.handleMinimize}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M19 13H5v-2h14v2z" />
@@ -24,7 +24,7 @@ class TitleBar extends React.Component {
               <path d="M0 0h24v24H0z" fill="none" />
             </svg>
           </button>
-        </span>
+        </div>
       </nav>
     );
   }

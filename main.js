@@ -41,7 +41,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 
 ipcMain.on('verfiy', (event, args) => {
-  verfiy.run(args.path, args.mimeType, (result) => {
-    event.sender.send('verified', result);
+  verfiy.run(args.path, args.mimeType, (results) => {
+    event.sender.send('verified', results);
   });
 });
