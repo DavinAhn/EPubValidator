@@ -16,7 +16,6 @@ require('electron-reload')(__dirname, {
     path.join(__dirname, 'src/fonts'),
     path.join(__dirname, 'src/images'),
     path.join(__dirname, 'src/sass'),
-    path.join(__dirname, 'public/css'),
   ],
 });
 
