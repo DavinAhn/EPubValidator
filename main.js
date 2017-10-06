@@ -8,6 +8,16 @@ const verfiy = require('./src/electron/verfiy');
 require('electron-reload')(__dirname, {
   electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
   hardResetMethod: 'exit',
+  ignored: [
+    // Don't touch 0 and 1.
+    path.join(__dirname, 'main.js'), // 0
+    /node_modules|[/\\]\./, // 1
+    path.join(__dirname, 'src/app'),
+    path.join(__dirname, 'src/fonts'),
+    path.join(__dirname, 'src/images'),
+    path.join(__dirname, 'src/sass'),
+    path.join(__dirname, 'public/css'),
+  ],
 });
 
 // This method will be called when Electron has finished
