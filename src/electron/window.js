@@ -59,7 +59,7 @@ module.exports = {
   getMain: () => main,
 
   loadMain() {
-    const filePath = path.join(__dirname, '../../index.html');
+    const filePath = path.join(__dirname, '../../public/index.html');
     const win = this.create(filePath, this.defaultConfig);
     win.on('closed', () => {
       // Dereference the window object, usually you would store windows
