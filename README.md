@@ -12,7 +12,7 @@
 You can install it with the following command:
 ```
 $ git clone https://github.com/DaVinAhn/EPubValidator.git [target directory]
-$ cd [taget directory]
+$ cd [target directory]
 $ npm install
 ```
 
