@@ -13,8 +13,8 @@ class ControlBar extends React.Component {
     const results = this.props.results;
     const summary = [];
     if (results) {
-      const names = ['fatal', 'error', 'warning', 'usage'];
-      ['nFatal', 'nError', 'nWarning', 'nUsage'].forEach((key, idx, list) => {
+      const names = ['fatal', 'error', 'warning', 'info', 'usage'];
+      ['nFatal', 'nError', 'nWarning', 'nInfo', 'nUsage'].forEach((key, idx, list) => {
         summary.push(
           (
             <div className="control_bar_result_summary">

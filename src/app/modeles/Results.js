@@ -4,6 +4,7 @@ class Results {
   get nFatal() { return this.epub.checker.nFatal; }
   get nError() { return this.epub.checker.nError; }
   get nWarning() { return this.epub.checker.nWarning; }
+  get nInfo() { return this.epub.messages.filter(item => item.severity === 'INFO').length; }
   get nUsage() { return this.epub.checker.nUsage; }
   get epub() { return this._epub; }
 

@@ -10,13 +10,9 @@ class ReportItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <span>{this.props.content.id}</span>
-        </div>
-        <div>
-          <span>{this.props.content.message}</span>
-        </div>
+      <div className={`report_item item_${this.props.content.severity.toLowerCase()}`}>
+        <div className="report_id">{this.props.content.id}</div>
+        <div className="report_message">{this.props.content.message}</div>
       </div>
     );
   }

@@ -1,21 +1,33 @@
 /* Report Item */
 
 .report_item {
-  border: 1px;
+  border-radius: 10px;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  position: relative;
 }
 
-.item_fatal {
-
+.report_id {
+  padding-bottom: 0.5rem;
+  line-height: 1;
+  font-size: 0.8rem;
 }
 
-.item_error {
-
+.report_message {
+  line-height: 1.2;
+  text-indent: 0.5rem;
+  hyphens: auto;
 }
 
-.item_warning {
-
-}
-
-.item_usage {
-
+@each $color-name, $color in $colors {
+  @each $color-type, $color-value in $color {
+    @if $color-name == "state" {
+      .item_#{$color-type} {
+        background-color: rgba($color-value, 0.15);
+        border-color: rgba($color-value, 0.2);
+        color: darken($color-value, 10%);
+        a { color: darken($color-value, 20%); }
+      }
+    }
+  }
 }

@@ -16,27 +16,15 @@
   font-size: 0.8rem;
 }
 
-.result_fatal {
-  &:focus, &:hover {
-    color: getColor(state, fatal);
-  }
-}
-
-.result_error {
-  &:focus, &:hover {
-    color: getColor(state, error);
-  }
-}
-
-.result_warning {
-  &:focus, &:hover {
-    color: getColor(state, warning);
-  }
-}
-
-.result_usage {
-  &:focus, &:hover {
-    color: getColor(state, usage);
+@each $color-name, $color in $colors {
+  @each $color-type, $color-value in $color {
+    @if $color-name == "state" {
+      .result_#{$color-type} {
+        &:focus, &:hover {
+          color: $color-value;
+        }
+      }
+    }
   }
 }
 

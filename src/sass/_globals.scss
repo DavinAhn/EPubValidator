@@ -145,7 +145,8 @@ $colors: map_merge($colors, (
     "warning": getColor(yellow, '50'),
     "fatal": getColor(red, '70'),
     "error": getColor(red, '40'),
-    "usage": getColor(dodgerBlue, '20')
+    "usage": getColor(green, '30'),
+    "info": getColor(dodgerBlue, '20')
   )
 ));
 
