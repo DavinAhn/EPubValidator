@@ -1,0 +1,9 @@
+/* Functions */
+
+$colors: (
+
+) !default;
+
+@function getColor($color, $value: "base") {
+  @return map-get(map-get($colors, $color), $value);
+}

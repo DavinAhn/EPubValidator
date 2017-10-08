@@ -1,0 +1,12 @@
+body {
+  font-family: UbuntuLight;
+  color: getColor(text, base);
+  background-color: getColor(background, body);
+  user-select: none;
+}
+
+#app_body {
+  margin-top: $size_bar_height;
+  display: inline-block;
+  width: 100%;
+}

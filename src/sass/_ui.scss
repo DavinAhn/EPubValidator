@@ -1,0 +1,36 @@
+/* UI */
+
+.button {
+  color: getColor(text, base);
+  line-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  outline: none;
+  transition: opacity .15s ease, background-color .15s ease, color .15s ease, border .15s ease;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: getColor(background, nav);
+}
+
+.navbar_brand {
+  color: getColor(text, brand);
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  &:focus, &:hover {
+    text-decoration: none;
+  }
+}

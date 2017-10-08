@@ -1,0 +1,154 @@
+/* Globals */
+
+// Variables
+$size_bar_height: 2rem;
+$size_bar_right_button_margin_left: 0.7rem;
+$size_bar_icon_size: 1rem;
+
+// Colors
+$colors: map_merge($colors, (
+  slateGray: (
+    "5": #f2f4f5,
+    "10": #e6e8eb,
+    "20": #d1d5d9,
+    "30": #b8bfc4,
+    "40": #9ea7ad,
+    "50": #808991,
+    "60": #636c73,
+    "70": #525a61,
+    "80": #40474d,
+    "90": #303538,
+    "100": #212529
+  ),
+  blueGray: (
+    "5": #f2f6fc,
+    "10": #d6deeb,
+    "20": #94a2b8,
+    "30": #738096,
+    "40": #59667a,
+    "50": #475161,
+    "60": #384252,
+    "70": #2e3847,
+    "80": #212b3b,
+    "90": #17202e,
+    "100": #0f1724
+  ),
+  lightSteelBlue: (
+    "5": #f7fafc,
+    "10": #f0f5fa,
+    "20": #e3edf7,
+    "30": #d6e3f0,
+    "40": #ccd9e6,
+    "50": #c4d1de,
+    "60": #b3c2d1,
+    "70": #9eafbf,
+    "80": #8c9dad,
+    "90": #7d8e9e,
+    "100": #70808f
+  ),
+  dodgerBlue: (
+    "5": #ebf6ff,
+    "10": #cce8ff,
+    "20": #99d1ff,
+    "30": #66baff,
+    "40": #339cf2,
+    "50": #1f8ce6,
+    "60": #0077d9,
+    "70": #0062b3,
+    "80": #005499,
+    "90": #004680,
+    "100": #003866
+  ),
+  red: (
+    "5": #fce8e6,
+    "10": #fabab3,
+    "20": #f5948a,
+    "30": #eb5847,
+    "40": #eb5847,
+    "50": #e64937,
+    "60": #d93826,
+    "70": #c93221,
+    "80": #ba2c1c,
+    "90": #ab2617,
+    "100": #942114
+  ),
+  orange: (
+    "5": #ffeee6,
+    "10": #ffccb3,
+    "20": #ffaa80,
+    "30": #ff884d,
+    "40": #fa722e,
+    "50": #fa5300,
+    "60": #e64d00,
+    "70": #cc4400,
+    "80": #b33b00,
+    "90": #993300,
+    "100": #802b00
+  ),
+  green: (
+    "5": #f1faeb,
+    "10": #ddf2cc,
+    "20": #b2e08f,
+    "30": #7bcf3b,
+    "40": #5abf0d,
+    "50": #4fb303,
+    "60": #469e03,
+    "70": #409103,
+    "80": #398003,
+    "90": #2c6600,
+    "100": #214d00
+  ),
+  brown: (
+    "5": #fff9f0,
+    "10": #f5e8d4,
+    "20": #e6cfad,
+    "30": #d1aa70,
+    "40": #c29757,
+    "50": #b0874a,
+    "60": #a37a3d,
+    "70": #8f6930,
+    "80": #805b24,
+    "90": #6b4a1a,
+    "100": #5c3f14
+  ),
+  yellow: (
+    "5": #fffffa,
+    "10": #ffffe1,
+    "20": #ffffc8,
+    "30": #ffffaf,
+    "40": #ffff96,
+    "50": #ffff7d,
+    "60": #ffff64,
+    "70": #ffff48,
+    "80": #ffff32,
+    "90": #ffff19,
+    "100": #ffff00
+  )
+));
+
+$colors: map_merge($colors, (
+  background: (
+    "body": #1e2028,
+    "nav": #343a40
+  ),
+  text: (
+    "brand": white,
+    "base": getColor(slateGray, '10'),
+    "summary": getColor(slateGray, '50')
+  ),
+  icon: (
+    "button": getColor(slateGray, '10')
+  ),
+  state: (
+    "muted": getColor(slateGray, '50'),
+    "success": getColor(green, '30'),
+    "warning": getColor(yellow, '50'),
+    "fatal": getColor(red, '70'),
+    "error": getColor(red, '40'),
+    "usage": getColor(dodgerBlue, '20')
+  )
+));
+
+::selection {
+  background: getColor(state, error);
+}

@@ -1,0 +1,91 @@
+/* Dropzone */
+
+$color_background: rgba(getColor(slateGray, '90'), 0.3);
+$color_border: getColor(slateGray, '50');
+$color_background_processing: rgba(getColor(dodgerBlue, '70'), 0.5);
+$color_border_processing: getColor(dodgerBlue, '70');
+$color_box_shadow: rgba(getColor(slateGray, '80'), 0.3);
+$color_box_shadow_active: getColor(dodgerBlue, '70');
+$color_border_active: getColor(dodgerBlue, '70');
+$color_text_shadow: black;
+$color_button_background: getColor(dodgerBlue, '80');
+$color_button_background_hover: getColor(dodgerBlue, '70');
+
+.dropzone_background {
+  margin: 80px 5rem;
+  height: 160px;
+  background: $color_background;
+  border: 2px dashed $color_border;
+  border-radius: 10px;
+}
+
+.dropzone {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-shadow: inset 0 0 0 1px $color_box_shadow;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: getColor(text, base);
+  font-size: 1.1em;
+  text-align: center;
+  text-shadow: 0 1px 1px $color_text_shadow;
+}
+
+@keyframes processing {
+  50% {
+    background: $color_background_processing;
+    border: 2px dashed $color_border_processing;
+  }
+  100% {
+    background: $color_background;
+    border: 2px dashed $color_border;
+  }
+}
+
+.dropzone_processing {
+  animation: processing 2s ease-in-out infinite;
+}
+
+.dropzone_active {
+  box-shadow: inset 0 0 20px 10px $color_box_shadow_active;
+  border: 2px dashed $color_border_active;
+}
+
+.dropzone_waiting_label {
+  padding-top: 30px;
+}
+
+.dropzone_processing_label {
+  padding-top: 62px;
+}
+
+#dropzone_import {
+  display: none;
+}
+
+.dropzone_import_button {
+  display: inline-block;
+  margin-top: 0.55rem;
+  padding: .3rem .6rem;
+  border-radius: 5px;
+  text-align: center;
+  background: $color_button_background;
+  &:focus, &:hover {
+    background: $color_button_background_hover;
+  }
+  svg, span {
+    display: inline-block;
+    vertical-align: top;
+  }
+  svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: getColor(icon, button);
+  }
+  span {
+    margin-top: 11px;
+    margin-left: 5px;
+    padding-right: 2px;
+  }
+}

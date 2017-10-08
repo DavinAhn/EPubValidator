@@ -1,0 +1,13 @@
+/* Report */
+
+ol {
+  counter-reset: item;
+  list-style-type: none;
+  padding: 0 0;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  &:first-child {
+    margin-top: 1rem;
+  }
+}

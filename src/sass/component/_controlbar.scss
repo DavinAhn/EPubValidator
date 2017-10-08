@@ -1,0 +1,60 @@
+/* Control Bar */
+
+#control_bar {
+  height: $size_bar_height;
+}
+
+.control_bar_summary {
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+.control_bar_result_summary, .time_ago {
+  display: inline-block;
+  font-family: UbuntuLight;
+  color: getColor(state, muted);
+  font-size: 0.8rem;
+}
+
+.result_fatal {
+  &:focus, &:hover {
+    color: getColor(state, fatal);
+  }
+}
+
+.result_error {
+  &:focus, &:hover {
+    color: getColor(state, error);
+  }
+}
+
+.result_warning {
+  &:focus, &:hover {
+    color: getColor(state, warning);
+  }
+}
+
+.result_usage {
+  &:focus, &:hover {
+    color: getColor(state, usage);
+  }
+}
+
+.control_bar_right_buttons {
+  float: right;
+  line-height: 0;
+  .control_bar_button {
+    margin-left: $size_bar_right_button_margin_left;
+  }
+}
+
+.control_bar_button {
+  opacity: .7;
+  &:focus, &:hover {
+    opacity: .95;
+  }
+  svg {
+    @include barIconSize();
+    fill: getColor(icon, button);
+  }
+}

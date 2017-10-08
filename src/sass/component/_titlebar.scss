@@ -1,0 +1,29 @@
+/* Title Bar */
+
+#title_bar {
+  height: $size_bar_height;
+  -webkit-app-region: drag;
+  span {
+    font-size: 0.9rem;
+  }
+}
+
+.title_bar_right_buttons {
+  float: right;
+  line-height: 0;
+  -webkit-app-region: no-drag;
+  .title_bar_button {
+    margin-left: $size_bar_right_button_margin_left;
+  }
+}
+
+.title_bar_button {
+  opacity: .7;
+  &:focus, &:hover {
+    opacity: .95;
+  }
+  svg {
+    @include barIconSize();
+    fill: getColor(icon, button);
+  }
+}
