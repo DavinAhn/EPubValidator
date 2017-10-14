@@ -10,20 +10,19 @@ class ControlBar extends React.Component {
   }
 
   render() {
-    const results = this.props.results;
+    const { results } = this.props;
     const summary = [];
     if (results) {
       const names = ['fatal', 'error', 'warning', 'info', 'usage'];
       ['nFatal', 'nError', 'nWarning', 'nInfo', 'nUsage'].forEach((key, idx, list) => {
-        summary.push(
-          (
-            <div className="control_bar_result_summary">
-              <span className={`result_${names[idx]}`}>
-                {names[idx].charAt(0).toUpperCase() + names[idx].slice(1)} {results[key]}
-              </span>
-              {idx < list.length - 1 ? ',' : ''}&nbsp;
-            </div>
-          ));
+        summary.push((
+          <div className="control_bar_result_summary">
+            <span className={`result_${names[idx]}`}>
+              {names[idx].charAt(0).toUpperCase() + names[idx].slice(1)} {results[key]}
+            </span>
+            {idx < list.length - 1 ? ',' : ''}&nbsp;
+          </div>
+        ));
       });
     }
     return (

@@ -13,7 +13,7 @@ class Message {
     this._severity = json.severity;
     this._message = json.message;
     this._additionalLocations = json.additionalLocations;
-    const locations = json.locations;
+    const { locations } = json;
     if (locations) {
       const list = [];
       locations.forEach((location) => {

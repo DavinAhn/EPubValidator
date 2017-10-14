@@ -8,11 +8,11 @@ class EPubResult {
   get messages() { return this._messages || []; }
 
   constructor(json) {
-    const result = json.result;
+    const { result } = json;
     if (result) {
       this._checker = new EPubChecker(result);
       this._book = new EPubBook(result);
-      const messages = result.messages;
+      const { messages } = result;
       if (messages) {
         const list = [];
         messages.forEach((message) => {

@@ -30,7 +30,7 @@ class EPubBook {
   get items() { return this._items || []; }
 
   constructor(json) {
-    const publication = json.publication;
+    const { publication } = json;
     if (publication) {
       this._publisher = publication.publisher;
       this._title = publication.title;
@@ -59,7 +59,7 @@ class EPubBook {
       this._hasSignatures = publication.hasSignatures;
       this._contributors = publication.contributors;
     }
-    const items = json.items;
+    const { items } = json;
     if (items) {
       const list = [];
       items.forEach((item) => {

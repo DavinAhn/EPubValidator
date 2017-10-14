@@ -45,7 +45,7 @@ module.exports = {
       bounds.height = Math.max(bounds.height, this.mainMinHeight);
     }
 
-    const workArea = require('electron').screen.getPrimaryDisplay().workArea;
+    const { workArea } = require('electron').screen.getPrimaryDisplay();
     bounds.width = Math.min(bounds.width, workArea.width);
     bounds.height = Math.min(bounds.height, workArea.height);
 

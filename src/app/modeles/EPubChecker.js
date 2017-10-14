@@ -10,7 +10,7 @@ class EPubChecker {
   get nUsage() { return this._nUsage || 0; }
 
   constructor(json) {
-    const checker = json.checker;
+    const { checker } = json;
     if (checker) {
       this._path = checker.path;
       this._fileName = checker.fileName;

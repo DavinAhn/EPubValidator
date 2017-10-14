@@ -11,15 +11,14 @@ class ReportContainer extends React.Component {
 
   _epubRender() {
     const items = [];
-    const results = this.props.results;
+    const { results } = this.props;
     if (results) {
       results.epub.messages.forEach((item) => {
-        items.push(
-          (
-            <li>
-              <ReportItem content={item} />
-            </li>
-          ));
+        items.push((
+          <li>
+            <ReportItem content={item} />
+          </li>
+        ));
       });
     }
     return (

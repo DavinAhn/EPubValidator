@@ -5,7 +5,7 @@ import BodyContainer from './body.container.jsx';
 import ControlBar from '../components/controlbar.componet.jsx';
 import Results from '../modeles/Results';
 
-const ipcRenderer = window.require('electron').ipcRenderer;
+const { ipcRenderer } = window.require('electron');
 
 class AppContainer extends React.Component {
   constructor(props) {

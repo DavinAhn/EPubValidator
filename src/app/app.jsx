@@ -5,7 +5,7 @@ import AppContainer from './containers/app.container.jsx';
 require('../sass/index.scss');
 
 // https://github.com/electron/electron/issues/7300
-const remote = window.require('electron').remote;
+const { remote } = window.require('electron');
 
 class App extends React.Component {
   constructor(props) {

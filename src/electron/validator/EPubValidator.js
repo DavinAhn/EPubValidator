@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const { Validator } = require('./Validator');
 
 class EPubValidator extends Validator {
