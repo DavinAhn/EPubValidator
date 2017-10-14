@@ -18,14 +18,14 @@ module.exports = {
   },
 
   mainMinWidth: 600,
-  mainMinHeight: 352,
+  mainMinHeight: 360,
 
   defaultConfig: {
     x: undefined,
     y: undefined,
     width: 600,
     minWidth: this.mainMinWidth,
-    height: 352,
+    height: 360,
     minHeight: this.mainMinHeight,
     minimizable: true,
     maximizable: false,
@@ -33,6 +33,10 @@ module.exports = {
     show: false,
     frame: false,
     backgroundColor: '#1e2028',
+  },
+
+  getSize(win) {
+    return win.getSize();
   },
 
   updateSize(size, win) {

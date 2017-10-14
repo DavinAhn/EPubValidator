@@ -59,3 +59,8 @@ ipcMain.on('verfiy', (event, args) => {
 ipcMain.on('updateSize', (event, args) => {
   win.updateSize(args.size, win.getMain());
 });
+
+ipcMain.on('getSize', (event) => {
+  const size = win.getSize(win.getMain());
+  event.sender.send('size', { width: size[0], height: size[1] });
+});

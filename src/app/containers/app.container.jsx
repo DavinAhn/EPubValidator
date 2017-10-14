@@ -17,6 +17,15 @@ class AppContainer extends React.Component {
     };
   }
 
+  componentWillMount() {
+    ipcRenderer.on('verified', (event, args) => {
+      this.setState({
+        isProcessing: false,
+        results: new Results(args),
+      });
+    });
+  }
+
   handleReceivedFile(file) {
     this.setState({
       latestFile: file,
@@ -26,12 +35,6 @@ class AppContainer extends React.Component {
     ipcRenderer.send('verfiy', {
       path: file.path,
       mimeType: file.type,
-    });
-    ipcRenderer.on('verified', (event, args) => {
-      this.setState({
-        isProcessing: false,
-        results: new Results(args),
-      });
     });
   }
 

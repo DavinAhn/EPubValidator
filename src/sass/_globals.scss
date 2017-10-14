@@ -129,7 +129,8 @@ $colors: map_merge($colors, (
 $colors: map_merge($colors, (
   background: (
     "body": #1e2028,
-    "nav": #343a40
+    "nav": #343a40,
+    "thumb": getColor(slateGray, '80')
   ),
   text: (
     "brand": white,
