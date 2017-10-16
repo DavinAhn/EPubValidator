@@ -1,7 +1,7 @@
 const { app, Menu, ipcMain } = require('electron');
 const path = require('path');
-const win = require('./src/electron/window');
-const verfiy = require('./src/electron/verfiy');
+const win = require('./src/main/window');
+const verfiy = require('./src/main/verfiy');
 
 // Load contents of all active BrowserWindows within electron
 // when the source files are changed.
