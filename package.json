@@ -4,7 +4,7 @@
   "description": "ePub Validator on Electron-based.",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js",
+    "start": "electron .",
     "debug": "electron --inspect=5858 main.js",
     "watch": "webpack --watch",
     "build": "webpack",
