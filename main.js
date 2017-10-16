@@ -12,7 +12,7 @@ require('electron-reload')(__dirname, {
     // Don't touch 0 and 1.
     path.join(__dirname, 'main.js'), // 0
     /node_modules|[/\\]\./, // 1
-    path.join(__dirname, 'src/app'),
+    path.join(__dirname, 'src/renderer'),
     path.join(__dirname, 'src/fonts'),
     path.join(__dirname, 'src/images'),
     path.join(__dirname, 'src/sass'),
