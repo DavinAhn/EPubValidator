@@ -1,14 +1,28 @@
 {
   "name": "EPubValidator",
+  "productName": "ePub Validator",
   "version": "0.1.0",
-  "description": "ePub Validator on Electron-based.",
-  "main": "main.js",
+  "description": "Electron-based ePub Validator.",
+  "main": "index.js",
   "scripts": {
-    "start": "electron .",
-    "debug": "electron --inspect=5858 main.js",
-    "watch": "webpack --watch",
-    "build": "webpack",
-    "lint": "eslint --fix --ext .js,.jsx src"
+    "clean": "node --trace-warnings -r babel-register internal/clean.js",
+    "lint": "eslint .",
+    "lint-fix": "npm run lint -- --fix",
+    "start": "cross-env NODE_ENV=production electron build",
+    "start-dev": "cross-env NODE_ENV=development electron . --inspect=5858",
+    "build": "npm run build-main && npm run build-renderer",
+    "build-dev": "npm run build-main && npm run build-renderer-dev",
+    "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.main.js --colors",
+    "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.pro.js --colors",
+    "build-renderer-dev": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.dev.js --colors",
+    "build-renderer-dev-watch": "npm run build-renderer-dev -- --watch",
+    "prepackage": "npm run clean && npm run build && cd build && npm install --production",
+    "package-all": "npm run package-mac && npm run package-win && npm run package-linux",
+    "package-mac": "cross-env NODE_ENV=production node --trace-warnings -r babel-register release.mac.js",
+    "package-win": "npm run package-win32 && npm run package-win64",
+    "package-win32": "cross-env NODE_ENV=production node --trace-warnings -r babel-register release.win32.js",
+    "package-win64": "cross-env NODE_ENV=production node --trace-warnings -r babel-register release.win64.js",
+    "package-linux": "cross-env NODE_ENV=production node --trace-warnings -r babel-register release.linux.js"
   },
   "repository": {
     "type": "git",
@@ -20,9 +34,19 @@
     "Electron",
     "ePub"
   ],
-  "author": "davin.ahn <m.davinahn@gmail.com>",
+  "author": {
+    "name": "Davin Ahn",
+    "mail": "m.davinahn@gmail.com"
+  },
   "license": "MIT",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-custom-scrollbars": "^4.1.2",
+    "react-dom": "^15.4.1",
+    "react-timeago": "^3.4.3"
+  },
   "devDependencies": {
+    "@ridi/eslint-config": "^3.1.0",
     "babel-core": "^6.14.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-es2015-classes": "^6.8.0",
@@ -30,9 +54,13 @@
     "babel-polyfill": "^6.16.0",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "^6.5.0",
+    "chalk": "^2.1.0",
+    "copy-webpack-plugin": "^4.2.0",
+    "cross-env": "^5.1.0",
     "css-loader": "^0.28.7",
+    "del": "^3.0.0",
     "electron": "^1.7.8",
-    "electron-cli": "^0.2.8",
+    "electron-packager": "^9.1.0",
     "electron-reload": "^1.2.2",
     "eslint": "^4.7.2",
     "eslint-loader": "^1.3.0",
@@ -43,14 +71,10 @@
     "extract-text-webpack-plugin": "^3.0.1",
     "file-loader": "^1.1.4",
     "node-sass": "^4.5.3",
-    "react": "^15.4.1",
-    "react-custom-scrollbars": "^4.1.2",
-    "react-dom": "^15.4.1",
-    "react-timeago": "^3.4.3",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "webpack": "^3.0.0",
-    "webpack-cli": "^1.3.3",
-    "@ridi/eslint-config": "^3.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }

@@ -1,14 +1,12 @@
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+import path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-module.exports = {
+export default {
   entry: {
-    index: `${__dirname}/src/renderer/app.jsx`,
+    index: path.join(__dirname, 'src', 'renderer', 'app.jsx'),
   },
-  output: {
-    path: `${__dirname}/public/js`,
-    filename: 'bundle.js',
-  },
+
   module: {
     rules: [
       {
@@ -31,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.ttf$/,
-        exclude: [/node_modules/],
+        exclude: /node_modules/,
         loader: 'file-loader',
         options: {
           name: '../fonts/[name].[ext]',
@@ -39,7 +37,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        exclude: [/node_modules/],
+        exclude: /node_modules/,
         loader: 'file-loader',
         options: {
           name: '../images/[name].[ext]',
@@ -47,26 +45,25 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: [/node_modules/],
+        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
-          use: [{
-            loader: 'css-loader',
-          }, {
-            loader: 'sass-loader',
-          }],
+          use: [
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'sass-loader',
+            },
+          ],
           fallback: 'style-loader',
         }),
       },
     ],
   },
-  watchOptions: {
-    aggregateTimeout: 300,
-    poll: 1000,
-  },
-  devtool: 'source-map',
+
   plugins: [
     new webpack.ProvidePlugin({
-      "React": "react",
+      'React': 'react', // eslint-disable-line quote-props
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),

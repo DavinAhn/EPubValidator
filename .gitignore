@@ -1,4 +1,7 @@
 .idea
-node_modules
-public/*/*
 *.log
+index.*
+build
+node_modules
+public
+release

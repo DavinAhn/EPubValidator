@@ -1,1 +1,5 @@
-webpack.config.*
+index.*
+build
+node_modules
+public
+release

@@ -1,15 +1,17 @@
-const fs = require('fs');
-const path = require('path');
-const { spawn } = require('child_process');
-const { Validator } = require('./Validator');
+import fs from 'fs';
+import path from 'path';
+import { app } from 'electron';
+import { spawn } from 'child_process';
+import Validator from './Validator';
 
 class EPubValidator extends Validator {
   get name() { return 'epub'; }
 
   run(callback) {
-    const jarPath = path.join(process.cwd(), 'libs/epubcheck/epubcheck.jar');
+    const tempPath = app.getPath('temp');
+    const jarPath = path.join(__dirname, 'libs', 'epubcheck', 'epubcheck.jar');
     const targetPath = this.filePath;
-    const outputPath = '.epubcheck_result.json';
+    const outputPath = path.join(tempPath, '.epubcheck_result.json');
     const child = spawn('java', [
       '-Duser.country=KO',
       '-Duser.language=kr',
@@ -39,4 +41,4 @@ class EPubValidator extends Validator {
   }
 }
 
-exports.EPubValidator = EPubValidator;
+export default EPubValidator;

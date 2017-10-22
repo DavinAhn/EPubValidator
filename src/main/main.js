@@ -1,29 +1,32 @@
-const { app, Menu, ipcMain } = require('electron');
-const path = require('path');
-const win = require('./src/main/window');
-const verfiy = require('./src/main/verfiy');
+import { app, Menu, ipcMain } from 'electron';
+import path from 'path';
+import win from './window';
+import verfiy from './verfiy';
 
-// Load contents of all active BrowserWindows within electron
-// when the source files are changed.
-require('electron-reload')(__dirname, {
-  electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
-  hardResetMethod: 'exit',
-  ignored: [
-    // Don't touch 0 and 1.
-    path.join(__dirname, 'main.js'), // 0
-    /node_modules|[/\\]\./, // 1
-    path.join(__dirname, 'src/renderer'),
-    path.join(__dirname, 'src/fonts'),
-    path.join(__dirname, 'src/images'),
-    path.join(__dirname, 'src/sass'),
-  ],
-});
+if (process.env.NODE_ENV === 'development') {
+  // Load contents of all active BrowserWindows within electron
+  // when the source files are changed.
+  require('electron-reload')(__dirname, {
+    electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
+    hardResetMethod: 'exit',
+    ignored: [
+      // Don't touch 0 and 1.
+      path.join(__dirname, 'main.js'), // 0
+      /node_modules|[/\\]\./, // 1
+      path.join(__dirname, 'src/renderer'),
+      path.join(__dirname, 'src/sass'),
+    ],
+  });
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
-  win.loadMain().webContents.openDevTools();
+  const main = win.loadMain();
+  if (process.env.NODE_ENV === 'development') {
+    main.webContents.openDevTools();
+  }
 
   // Remove all default menu.
   Menu.setApplicationMenu(null);

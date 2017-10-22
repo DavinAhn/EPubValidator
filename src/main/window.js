@@ -1,12 +1,15 @@
-const { BrowserWindow } = require('electron');
-const path = require('path');
-const url = require('url');
+import { BrowserWindow, screen } from 'electron';
+import path from 'path';
+import url from 'url';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let main;
 
-module.exports = {
+const mainMinWidth = 600;
+const mainMinHeight = 360;
+
+export default {
   create(filePath, config = this.defaultConfig) {
     const win = new BrowserWindow(config);
     win.loadURL(url.format({
@@ -17,16 +20,13 @@ module.exports = {
     return win;
   },
 
-  mainMinWidth: 600,
-  mainMinHeight: 360,
-
   defaultConfig: {
     x: undefined,
     y: undefined,
-    width: 600,
-    minWidth: this.mainMinWidth,
-    height: 360,
-    minHeight: this.mainMinHeight,
+    width: mainMinWidth,
+    minWidth: mainMinWidth,
+    height: mainMinHeight,
+    minHeight: mainMinHeight,
     minimizable: true,
     maximizable: false,
     fullscreenable: false,
@@ -45,11 +45,11 @@ module.exports = {
     bounds.height = size.height || bounds.height;
 
     if (win === this.getMain()) {
-      bounds.width = Math.max(bounds.width, this.mainMinWidth);
-      bounds.height = Math.max(bounds.height, this.mainMinHeight);
+      bounds.width = Math.max(bounds.width, mainMinWidth);
+      bounds.height = Math.max(bounds.height, mainMinHeight);
     }
 
-    const { workArea } = require('electron').screen.getPrimaryDisplay();
+    const { workArea } = screen.getPrimaryDisplay();
     bounds.width = Math.min(bounds.width, workArea.width);
     bounds.height = Math.min(bounds.height, workArea.height);
 
@@ -63,7 +63,7 @@ module.exports = {
   getMain: () => main,
 
   loadMain() {
-    const filePath = path.join(__dirname, '../../public/index.html');
+    const filePath = path.join(__dirname, 'public', 'index.html');
     const win = this.create(filePath, this.defaultConfig);
     win.on('closed', () => {
       // Dereference the window object, usually you would store windows

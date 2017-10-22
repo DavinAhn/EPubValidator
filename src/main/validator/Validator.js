@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 class Validator {
   get name() { return 'default'; }
@@ -18,4 +18,4 @@ class Validator {
   }
 }
 
-exports.Validator = Validator;
+export default Validator;

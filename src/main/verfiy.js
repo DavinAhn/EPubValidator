@@ -1,6 +1,6 @@
-const { EPubValidator } = require('./validator/EPubValidator');
+import EPubValidator from './validator/EPubValidator';
 
-module.exports = {
+export default {
   run(epubPath, mimeType, callback) {
     new Promise((resolve, reject) => {
       const results = {
