@@ -22,11 +22,11 @@ export default merge.smart(baseConfig, {
     }),
 
     new CopyWebpackPlugin([
-      { from: path.join(__dirname, 'package.json'), to: buildPath, },
-      { from: path.join(__dirname, 'index.js'), to: buildPath, },
-      { from: path.join(__dirname, 'LICENSE'), to: buildPath, },
-      { from: path.join(__dirname, 'public', 'index.html'), to: path.join(buildPath, 'public'), },
-      { from: path.join(__dirname, 'libs'), to: path.join(buildPath, 'libs'), },
-    ], { copyUnmodified: true, }),
+      { from: path.join(__dirname, 'package.json'), to: buildPath },
+      { from: path.join(__dirname, 'index.js'), to: buildPath },
+      { from: path.join(__dirname, 'LICENSE'), to: buildPath },
+      { from: path.join(__dirname, 'public', 'index.html'), to: path.join(buildPath, 'public') },
+      { from: path.join(__dirname, 'libs'), to: path.join(buildPath, 'libs') },
+    ], { copyUnmodified: true }),
   ],
 });
